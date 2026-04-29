@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"github.com/santiagourdaneta/Simulador-de-Pokemon-en-Golang-con-Memoizacion-Stack-Manual-Polimorfismo-y-Redis/internal/pokemon"
+	"pokemon-engine/internal/pokemon"
 	"github.com/go-redis/redis/v8"
 )
 
