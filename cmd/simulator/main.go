@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"pokemon-engine/internal/pokemon"
+	"os"
+	"github.com/santiagourdaneta/Simulador-de-Pokemon-en-Golang-con-Memoizacion-Stack-Manual-Polimorfismo-y-Redis/internal/pokemon"
 	"github.com/go-redis/redis/v8"
 )
 
@@ -18,7 +20,7 @@ type Estado struct {
 func main() {
 	// 1. Conexión a Redis  
 	rdb := redis.NewClient(&redis.Options{
-		Addr: "localhost:6379",  
+		Addr: "os.Getenv("https://proper-seasnail-108819.upstash.io")",  
 	})
 
 	// 2. Definir contendientes (Polimorfismo)

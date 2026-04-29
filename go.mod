@@ -1,4 +1,4 @@
-module pokemon-engine
+module github.com/santiagourdaneta/Simulador-de-Pokemon-en-Golang-con-Memoizacion-Stack-Manual-Polimorfismo-y-Redis
 
 go 1.24.3
 
