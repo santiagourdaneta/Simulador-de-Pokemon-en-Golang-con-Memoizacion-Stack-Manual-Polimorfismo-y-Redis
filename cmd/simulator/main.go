@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"pokemon-engine/internal/pokemon"
+	pk "pokemon-engine/internal/pokemon"
 	"github.com/go-redis/redis/v8"
 )
 
@@ -31,9 +31,9 @@ redisURL := os.Getenv("REDIS_URL")
 		return
 	}
 	rdb := redis.NewClient(opt)
-	
+
 	// 2. Definir contendientes (Polimorfismo)
-	pika := pokemon.Pikachu{Nombre: "Sparky"}
+	pika := pk.Pikachu{Nombre: "Sparky"}
 	hpEnemigoInicial := 100
 
 	// 3. MEMOIZACIÓN: ¿Ya calculamos esto antes?
