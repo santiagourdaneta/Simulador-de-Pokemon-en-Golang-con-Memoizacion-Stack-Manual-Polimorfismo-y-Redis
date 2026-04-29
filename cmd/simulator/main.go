@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"pokemon-engine/internal/pokemon"
 	"os"
 	"github.com/santiagourdaneta/Simulador-de-Pokemon-en-Golang-con-Memoizacion-Stack-Manual-Polimorfismo-y-Redis/internal/pokemon"
 	"github.com/go-redis/redis/v8"
@@ -18,11 +17,21 @@ type Estado struct {
 }
 
 func main() {
-	// 1. Conexión a Redis  
-	rdb := redis.NewClient(&redis.Options{
-		Addr: "os.Getenv("https://proper-seasnail-108819.upstash.io")",  
-	})
 
+// 1. Conexión a Redis  
+redisURL := os.Getenv("REDIS_URL")
+	if redisURL == "" {
+		// Fallback para local
+		redisURL = "redis://localhost:6379" 
+	}
+
+	opt, err := redis.ParseURL(redisURL)
+	if err != nil {
+		fmt.Printf("Error parseando la URL de Redis: %v\n", err)
+		return
+	}
+	rdb := redis.NewClient(opt)
+	
 	// 2. Definir contendientes (Polimorfismo)
 	pika := pokemon.Pikachu{Nombre: "Sparky"}
 	hpEnemigoInicial := 100
